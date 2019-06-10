@@ -1,27 +1,39 @@
 package com.dhruvam.gseinshorts;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-public class ScreenVerticalSlideAdapter extends FragmentStatePagerAdapter {
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+public class ScreenVerticalSlideAdapter extends RecyclerView.Adapter<ScreenVerticalSlideAdapter.NewsViewHolder> {
     /**
      * The number of pages to show in this apk.
      */
     private static final int NUM_PAGES = 3;
 
-
-    public ScreenVerticalSlideAdapter(FragmentManager fm) {
-        super(fm);
+    @NonNull
+    @Override
+    public NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_top_bottom, parent, false);
+        return new NewsViewHolder(view);
     }
 
     @Override
-    public Fragment getItem(int position) {
-        return new TopBottomFragment();
+    public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
+
     }
 
     @Override
-    public int getCount() {
+    public int getItemCount() {
         return NUM_PAGES;
+    }
+
+
+    class NewsViewHolder extends RecyclerView.ViewHolder {
+        NewsViewHolder(@NonNull View itemView) {
+            super(itemView);
+        }
     }
 }

@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 import me.kaelaela.verticalviewpager.VerticalViewPager;
 import me.kaelaela.verticalviewpager.transforms.DefaultTransformer;
@@ -23,12 +24,12 @@ public class ScreenSlidePageFragment extends Fragment {
      * The pager widget, which handles animation and allows swiping horizontally to access previous
      * and next screen.
      */
-    private VerticalViewPager mPager;
+    private ViewPager2 mPager;
 
     /**
      * The pager adapter, which provides the pages to the view pager widget.
      */
-    private PagerAdapter pagerAdapter;
+    private ScreenVerticalSlideAdapter pagerAdapter;
 
     @Override
     public void onAttach(Context context) {
@@ -58,10 +59,10 @@ public class ScreenSlidePageFragment extends Fragment {
     private void pagerInit(ViewGroup rootView) {
         mPager = rootView.findViewById(R.id.top_bottom_content_pager);
         if(null != getActivity()) {
-            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            pagerAdapter = new ScreenVerticalSlideAdapter(fragmentManager);
+            //FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            pagerAdapter = new ScreenVerticalSlideAdapter();
             mPager.setAdapter(pagerAdapter);
-            mPager.setPageTransformer(false, new DefaultTransformer());
+            mPager.setOrientation(ViewPager2.ORIENTATION_VERTICAL);
         }
 
     }
