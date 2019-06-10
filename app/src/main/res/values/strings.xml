@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">GSEInshorts</string>
+    <string name="lorem_ipsum">Lorem Ipsum</string>
+    <string name="settings">settings</string>
+    <string name="detail">Detail</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
