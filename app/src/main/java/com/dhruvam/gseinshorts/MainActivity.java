@@ -43,21 +43,22 @@ public class MainActivity extends AppCompatActivity
         mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                Log.d("page scrolled", String.valueOf(position));
+
             }
 
             @Override
             public void onPageSelected(int position) {
-                if (position == MAIN_CONTENT_PAGE) {
-                    ScreenSlidePagerAdapter adapter = (ScreenSlidePagerAdapter) pagerAdapter;
-                    ScreenSlidePageFragment fragment = (ScreenSlidePageFragment) adapter.getItem(position);
-                    int data = fragment.getItemData();
-                }
+
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
-
+                if (state == MAIN_CONTENT_PAGE) {
+                    ScreenSlidePagerAdapter adapter = (ScreenSlidePagerAdapter) pagerAdapter;
+                    ScreenSlidePageFragment fragment = (ScreenSlidePageFragment) adapter.getItem(state);
+                    int data = fragment.getItemData();
+                    Log.d("current item", String.valueOf(data));
+                }
             }
         });
     }

@@ -9,12 +9,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
-import me.kaelaela.verticalviewpager.VerticalViewPager;
-import me.kaelaela.verticalviewpager.transforms.DefaultTransformer;
 
 
 public class ScreenSlidePageFragment extends Fragment {
@@ -68,7 +64,10 @@ public class ScreenSlidePageFragment extends Fragment {
     }
 
     public int getItemData() {
-        return 1;
+        if(mPager != null)
+            return mPager.getCurrentItem();
+        else
+            return -1;
     }
 
     /**

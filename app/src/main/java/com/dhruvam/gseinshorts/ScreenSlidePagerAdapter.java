@@ -6,6 +6,10 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
+    private SettingsFragmentLeft settingsFragmentLeft;
+    private ScreenSlidePageFragment screenSlidePageFragment;
+    private DetailFragmentRight detailFragmentRight;
+
     /**
      * The number of pages to show in this apk.
      */
@@ -21,15 +25,15 @@ public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
         Fragment fragment = null;
         switch (position) {
             case 0:
-                fragment = new SettingsFragmentLeft();
+                fragment = getSettingsFragmentLeft();
                 break;
 
             case 1:
-                fragment = new ScreenSlidePageFragment();
+                fragment = getScreenSlidePageFragment();
                 break;
 
             case 2:
-                fragment = new DetailFragmentRight();
+                fragment = getDetailFragmentRight();
                 break;
         }
 
@@ -42,4 +46,24 @@ public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
         return NUM_PAGES;
     }
 
+    public DetailFragmentRight getDetailFragmentRight() {
+        if(detailFragmentRight == null) {
+            detailFragmentRight = new DetailFragmentRight();
+        }
+        return detailFragmentRight;
+    }
+
+    public ScreenSlidePageFragment getScreenSlidePageFragment() {
+        if(screenSlidePageFragment == null) {
+            screenSlidePageFragment = new ScreenSlidePageFragment();
+        }
+        return screenSlidePageFragment;
+    }
+
+    public SettingsFragmentLeft getSettingsFragmentLeft() {
+        if(settingsFragmentLeft == null) {
+            settingsFragmentLeft = new SettingsFragmentLeft();
+        }
+        return settingsFragmentLeft;
+    }
 }
