@@ -1,4 +1,4 @@
-package com.dhruvam.gseinshorts;
+package com.dhruvam.gseinshorts.DetailTab;
 
 import android.content.Context;
 import android.net.Uri;
@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.dhruvam.gseinshorts.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,19 +40,12 @@ public class DetailFragmentRight extends Fragment {
         mTextView = rootView.findViewById(R.id.detail_text_view);
 
         mViewModel = ViewModelProviders.of(this).get(DetaiFragmentViewModel.class);
-        mTextView.setText(mViewModel.data == -1  ? "" : String.valueOf(mViewModel.data));
+        //mTextView.setText(mViewModel.data == -1  ? "" : String.valueOf(mViewModel.data));
         return rootView;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
@@ -66,12 +61,6 @@ public class DetailFragmentRight extends Fragment {
         mListener = null;
     }
 
-    void onNewData(int data) {
-        if (mTextView != null) {
-            mViewModel.data = data;
-            mTextView.setText(String.valueOf(mViewModel.data));
-        }
-    }
 
     /**
      * This interface must be implemented by activities that contain this

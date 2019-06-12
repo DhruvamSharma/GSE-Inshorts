@@ -1,7 +1,7 @@
-package com.dhruvam.gseinshorts;
+package com.dhruvam.gseinshorts.starter;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -12,7 +12,12 @@ import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.util.Log;
+
+import com.dhruvam.gseinshorts.DetailTab.DetailFragmentRight;
+import com.dhruvam.gseinshorts.R;
+import com.dhruvam.gseinshorts.SettingsTab.SettingsFragmentLeft;
+import com.dhruvam.gseinshorts.util.NetworkConnectionStatus;
+import com.dhruvam.gseinshorts.VerticalNews.ScreenSlidePageFragment;
 
 public class MainActivity extends AppCompatActivity
         implements ScreenSlidePageFragment.NewsToNetListener,
@@ -57,37 +62,15 @@ public class MainActivity extends AppCompatActivity
         this.registerReceiver(mReceiver, filter);
     }
 
-    private void passDataToDetailFragment(int position) {
-        if (position == MAIN_CONTENT_PAGE + 1) {
-            int data = mViewModel.data;
-            if (data != -1) {
-                ScreenSlidePagerAdapter adapter = (ScreenSlidePagerAdapter) pagerAdapter;
-                DetailFragmentRight fragment = (DetailFragmentRight) adapter.getItem(position);
-                fragment.onNewData(data);
-            }
-        }
-    }
-
-    private void fetchingCurrentNewsItem(int state) {
-        if (state == MAIN_CONTENT_PAGE) {
-            ScreenSlidePagerAdapter adapter = (ScreenSlidePagerAdapter) pagerAdapter;
-            ScreenSlidePageFragment fragment = (ScreenSlidePageFragment) adapter.getItem(state);
-            int data = fragment.getItemData();
-            if (data != -1)
-            mViewModel.data = data;
-            Log.d("current item", String.valueOf(data));
-        }
-    }
-
     @Override
     public void onBackPressed() {
-        if (mPager.getCurrentItem() == 0) {
+        if (mPager.getCurrentItem() == MAIN_CONTENT_PAGE) {
             // If the user is currently looking at the first step, allow the system to handle the
             // Back button. This calls finish() on this activity and pops the back stack.
             super.onBackPressed();
         } else {
             // Otherwise, select the previous step.
-            mPager.setCurrentItem(mPager.getCurrentItem() - 1);
+            mPager.setCurrentItem(MAIN_CONTENT_PAGE);
         }
     }
 
@@ -95,24 +78,7 @@ public class MainActivity extends AppCompatActivity
         mPager = findViewById(R.id.main_content_holder);
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(pagerAdapter);
-        mPager.setCurrentItem(1);
-
-        mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                passDataToDetailFragment(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                fetchingCurrentNewsItem(state);
-            }
-        });
+        mPager.setCurrentItem(MAIN_CONTENT_PAGE);
     }
 
 

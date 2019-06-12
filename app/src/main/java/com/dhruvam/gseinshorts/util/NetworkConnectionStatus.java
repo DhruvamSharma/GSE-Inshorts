@@ -1,4 +1,4 @@
-package com.dhruvam.gseinshorts;
+package com.dhruvam.gseinshorts.util;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

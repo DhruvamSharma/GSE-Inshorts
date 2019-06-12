@@ -1,4 +1,4 @@
-package com.dhruvam.gseinshorts;
+package com.dhruvam.gseinshorts.DetailTab;
 
 import androidx.lifecycle.ViewModel;
 

@@ -1,4 +1,4 @@
-package com.dhruvam.gseinshorts;
+package com.dhruvam.gseinshorts.SettingsTab;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -10,6 +10,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -17,8 +18,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+
+import com.dhruvam.gseinshorts.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,7 +32,7 @@ public class SettingsFragmentLeft extends Fragment {
     private Toolbar mToolbar;
     private EditText mSerachText;
     private ImageButton mBackArrow;
-    private LinearLayout mBottomLayout;
+    private ConstraintLayout mBottomLayout;
 
     private OnFragmentInteractionListener mListener;
 
@@ -58,53 +59,12 @@ public class SettingsFragmentLeft extends Fragment {
         mBackArrow = rootView.findViewById(R.id.back_arrow_button);
         mBottomLayout = rootView.findViewById(R.id.setting_bottom_layout);
         mSearchView.setClickable(true);
-        mSearchView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mToolbar.setVisibility(View.VISIBLE);
+        onSearchViewClicked();
 
-                ValueAnimator fadeAnimToolbar = ObjectAnimator.ofFloat(mToolbar, "translationY", -100f, 0f);
-                fadeAnimToolbar.setDuration(250);
+        onBackArrowClicked();
+    }
 
-                ValueAnimator fadeAnimSearchView = ObjectAnimator.ofFloat(mSearchView, "alpha", 1f, 0f);
-                fadeAnimSearchView.setDuration(250);
-
-                ValueAnimator fadeAnimBottomLayout = ObjectAnimator.ofFloat(mBottomLayout, "alpha", 1f, 0f);
-                fadeAnimBottomLayout.setDuration(250);
-
-                ValueAnimator translateAnim = ObjectAnimator.ofFloat(mBottomLayout, "translationY", 0f, 100f);
-                translateAnim.setDuration(250);
-
-                AnimatorSet animatorSet = new AnimatorSet();
-                animatorSet.play(translateAnim).with(fadeAnimBottomLayout).with(fadeAnimSearchView).with(fadeAnimToolbar);
-                animatorSet.start();
-
-                translateAnim.addListener(new Animator.AnimatorListener() {
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        mSearchView.setVisibility(View.GONE);
-                        mToolbar.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
-                        mSearchView.setVisibility(View.GONE);
-                        mToolbar.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animator animation) {
-
-                    }
-                });
-            }
-        });
-
+    private void onBackArrowClicked() {
         mBackArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -142,6 +102,55 @@ public class SettingsFragmentLeft extends Fragment {
                     public void onAnimationCancel(Animator animation) {
                         mSearchView.setVisibility(View.VISIBLE);
                         mToolbar.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+                });
+            }
+        });
+    }
+
+    private void onSearchViewClicked() {
+        mSearchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mToolbar.setVisibility(View.VISIBLE);
+
+                ValueAnimator fadeAnimToolbar = ObjectAnimator.ofFloat(mToolbar, "translationY", -100f, 0f);
+                fadeAnimToolbar.setDuration(250);
+
+                ValueAnimator fadeAnimSearchView = ObjectAnimator.ofFloat(mSearchView, "alpha", 1f, 0f);
+                fadeAnimSearchView.setDuration(250);
+
+                ValueAnimator fadeAnimBottomLayout = ObjectAnimator.ofFloat(mBottomLayout, "alpha", 1f, 0f);
+                fadeAnimBottomLayout.setDuration(250);
+
+                ValueAnimator translateAnim = ObjectAnimator.ofFloat(mBottomLayout, "translationY", 0f, 100f);
+                translateAnim.setDuration(250);
+
+                AnimatorSet animatorSet = new AnimatorSet();
+                animatorSet.play(translateAnim).with(fadeAnimBottomLayout).with(fadeAnimSearchView).with(fadeAnimToolbar);
+                animatorSet.start();
+
+                translateAnim.addListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        mSearchView.setVisibility(View.GONE);
+                        mToolbar.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+                        mSearchView.setVisibility(View.GONE);
+                        mToolbar.setVisibility(View.VISIBLE);
                     }
 
                     @Override

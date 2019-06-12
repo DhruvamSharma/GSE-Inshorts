@@ -8,4 +8,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="news_image_description">News Image Thumbnail</string>
     <string name="search_bar_label">Search for news</string>
+    <string name="setting_heading_label">CATEGORIES</string>
+    <string name="setting_topics_label">SUGGESTED TOPICS</string>
 </resources>

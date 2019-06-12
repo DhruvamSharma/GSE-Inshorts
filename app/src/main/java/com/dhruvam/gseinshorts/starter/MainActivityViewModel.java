@@ -1,4 +1,4 @@
-package com.dhruvam.gseinshorts;
+package com.dhruvam.gseinshorts.starter;
 
 import androidx.lifecycle.ViewModel;
 

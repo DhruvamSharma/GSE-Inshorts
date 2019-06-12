@@ -1,9 +1,13 @@
-package com.dhruvam.gseinshorts;
+package com.dhruvam.gseinshorts.starter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+
+import com.dhruvam.gseinshorts.DetailTab.DetailFragmentRight;
+import com.dhruvam.gseinshorts.SettingsTab.SettingsFragmentLeft;
+import com.dhruvam.gseinshorts.VerticalNews.ScreenSlidePageFragment;
 
 public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 

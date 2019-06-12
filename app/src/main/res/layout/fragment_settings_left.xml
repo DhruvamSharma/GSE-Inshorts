@@ -26,7 +26,7 @@
                 android:id="@+id/back_arrow_button"
                 android:layout_weight="0.3"
                 android:background="@android:color/transparent"
-                android:src="@android:drawable/ic_menu_add"
+                android:src="@drawable/arrow_back_black"
                 android:layout_height="wrap_content"
                 android:layout_width="0dp"/>
 
@@ -49,6 +49,7 @@
         android:id="@+id/setting_search_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#BEBBBB"
         android:layout_margin="32dp"
 
         app:layout_constraintStart_toStartOf="parent"
@@ -58,18 +59,57 @@
     </androidx.appcompat.widget.SearchView>
 
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:orientation="vertical"
         android:id="@+id/setting_bottom_layout"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="400dp"
         android:layout_margin="32dp"
-        android:background="@color/colorAccent"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/setting_search_bar">
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/settings_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setting_heading_label"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <View
+            android:id="@+id/settings_view_1"
+            android:layout_marginTop="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/colorPrimary"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_heading"/>
+
+        <TextView
+            android:id="@+id/settings_topics_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/setting_topics_label"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_view_1"/>
+
+        <View
+            android:layout_marginTop="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/colorPrimary"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_topics_heading"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

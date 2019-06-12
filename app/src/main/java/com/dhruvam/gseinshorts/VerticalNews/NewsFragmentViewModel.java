@@ -1,4 +1,4 @@
-package com.dhruvam.gseinshorts;
+package com.dhruvam.gseinshorts.VerticalNews;
 
 import androidx.lifecycle.ViewModel;
 
