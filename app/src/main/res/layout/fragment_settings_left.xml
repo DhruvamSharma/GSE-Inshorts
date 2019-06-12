@@ -53,8 +53,23 @@
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/setting_toolbar">
+        app:layout_constraintTop_toTopOf="parent">
 
     </androidx.appcompat.widget.SearchView>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/setting_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="32dp"
+        android:background="@color/colorAccent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/setting_search_bar">
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
