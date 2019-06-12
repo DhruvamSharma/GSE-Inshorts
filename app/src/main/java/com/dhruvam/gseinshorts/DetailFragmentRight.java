@@ -4,7 +4,9 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +22,8 @@ import android.widget.TextView;
 public class DetailFragmentRight extends Fragment {
 
     private OnFragmentInteractionListener mListener;
+    private TextView mTextView;
+    private DetaiFragmentViewModel mViewModel;
 
     public DetailFragmentRight() {
         // Required empty public constructor
@@ -27,11 +31,14 @@ public class DetailFragmentRight extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_detail_right, container, false);
+        mTextView = rootView.findViewById(R.id.detail_text_view);
 
+        mViewModel = ViewModelProviders.of(this).get(DetaiFragmentViewModel.class);
+        mTextView.setText(mViewModel.data == -1  ? "" : String.valueOf(mViewModel.data));
         return rootView;
     }
 
@@ -57,6 +64,13 @@ public class DetailFragmentRight extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    void onNewData(int data) {
+        if (mTextView != null) {
+            mViewModel.data = data;
+            mTextView.setText(String.valueOf(mViewModel.data));
+        }
     }
 
     /**

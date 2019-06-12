@@ -4,11 +4,15 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 /**
@@ -18,6 +22,10 @@ import android.widget.TextView;
  * to handle interaction events.
  */
 public class SettingsFragmentLeft extends Fragment {
+    private SearchView mSearchView;
+    private Toolbar mToolbar;
+    private EditText mSerachText;
+    private ImageButton mBackArrow;
 
     private OnFragmentInteractionListener mListener;
 
@@ -32,7 +40,32 @@ public class SettingsFragmentLeft extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_settings_left, container, false);
 
+        initSettingsFragment(rootView);
+
         return rootView;
+    }
+
+    private void initSettingsFragment(ViewGroup rootView) {
+        mSearchView = rootView.findViewById(R.id.setting_search_bar);
+        mToolbar = rootView.findViewById(R.id.setting_toolbar);
+        mSerachText = rootView.findViewById(R.id.search_query_text);
+        mBackArrow = rootView.findViewById(R.id.back_arrow_button);
+        mSearchView.setClickable(true);
+        mSearchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSearchView.setVisibility(View.GONE);
+                mToolbar.setVisibility(View.VISIBLE);
+            }
+        });
+
+        mBackArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSearchView.setVisibility(View.VISIBLE);
+                mToolbar.setVisibility(View.GONE);
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event

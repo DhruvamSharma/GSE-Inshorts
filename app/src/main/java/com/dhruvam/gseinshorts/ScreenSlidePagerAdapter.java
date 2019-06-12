@@ -1,5 +1,6 @@
 package com.dhruvam.gseinshorts;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -20,9 +21,10 @@ public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
         super(fm);
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
-        Fragment fragment = null;
+        Fragment fragment;
         switch (position) {
             case 0:
                 fragment = getSettingsFragmentLeft();
@@ -35,10 +37,12 @@ public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
             case 2:
                 fragment = getDetailFragmentRight();
                 break;
+            default:
+                fragment = getScreenSlidePageFragment();
+                break;
         }
 
         return fragment;
-
     }
 
     @Override
@@ -46,21 +50,21 @@ public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
         return NUM_PAGES;
     }
 
-    public DetailFragmentRight getDetailFragmentRight() {
+    private DetailFragmentRight getDetailFragmentRight() {
         if(detailFragmentRight == null) {
             detailFragmentRight = new DetailFragmentRight();
         }
         return detailFragmentRight;
     }
 
-    public ScreenSlidePageFragment getScreenSlidePageFragment() {
+    private ScreenSlidePageFragment getScreenSlidePageFragment() {
         if(screenSlidePageFragment == null) {
             screenSlidePageFragment = new ScreenSlidePageFragment();
         }
         return screenSlidePageFragment;
     }
 
-    public SettingsFragmentLeft getSettingsFragmentLeft() {
+    private SettingsFragmentLeft getSettingsFragmentLeft() {
         if(settingsFragmentLeft == null) {
             settingsFragmentLeft = new SettingsFragmentLeft();
         }
