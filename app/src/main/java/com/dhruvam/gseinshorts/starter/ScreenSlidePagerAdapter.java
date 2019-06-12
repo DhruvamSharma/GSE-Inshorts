@@ -5,9 +5,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.dhruvam.gseinshorts.DetailTab.DetailFragmentRight;
-import com.dhruvam.gseinshorts.SettingsTab.SettingsFragmentLeft;
-import com.dhruvam.gseinshorts.VerticalNews.ScreenSlidePageFragment;
+import com.dhruvam.gseinshorts.detail_tab.DetailFragmentRight;
+import com.dhruvam.gseinshorts.settings_tab.SettingsFragmentLeft;
+import com.dhruvam.gseinshorts.vertical_news.ScreenSlidePageFragment;
 
 public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 

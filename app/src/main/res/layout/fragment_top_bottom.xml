@@ -6,7 +6,7 @@
     android:id="@+id/news_item_layout"
     android:layout_height="match_parent"
     app:cardCornerRadius="16dp"
-    tools:context=".VerticalNews.TopBottomFragment">
+    tools:context=".vertical_news.TopBottomFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

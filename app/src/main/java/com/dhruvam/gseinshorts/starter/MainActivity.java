@@ -1,7 +1,6 @@
 package com.dhruvam.gseinshorts.starter;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -13,11 +12,11 @@ import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 
-import com.dhruvam.gseinshorts.DetailTab.DetailFragmentRight;
+import com.dhruvam.gseinshorts.detail_tab.DetailFragmentRight;
 import com.dhruvam.gseinshorts.R;
-import com.dhruvam.gseinshorts.SettingsTab.SettingsFragmentLeft;
+import com.dhruvam.gseinshorts.settings_tab.SettingsFragmentLeft;
 import com.dhruvam.gseinshorts.util.NetworkConnectionStatus;
-import com.dhruvam.gseinshorts.VerticalNews.ScreenSlidePageFragment;
+import com.dhruvam.gseinshorts.vertical_news.ScreenSlidePageFragment;
 
 public class MainActivity extends AppCompatActivity
         implements ScreenSlidePageFragment.NewsToNetListener,

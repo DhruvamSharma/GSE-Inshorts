@@ -1,4 +1,4 @@
-package com.dhruvam.gseinshorts.SettingsTab;
+package com.dhruvam.gseinshorts.settings_tab;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;

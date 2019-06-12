@@ -1,4 +1,4 @@
-package com.dhruvam.gseinshorts.DetailTab;
+package com.dhruvam.gseinshorts.detail_tab;
 
 import android.content.Context;
 import android.net.Uri;
