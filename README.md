@@ -20,3 +20,8 @@ All features included in the app are:
 4. On settings screen, you can click on the search view and it animates to a toolbar for searching.
 
 
+### Screenshots
+
+<img src="https://github.com/DhruvamSharma/GSE-Inshorts/blob/master/docs/main_screen.png" height=500 width=300> <img src="https://github.com/DhruvamSharma/GSE-Inshorts/blob/master/docs/main_screen_after_click.png" height=500 width=300>
+
+<img src="https://github.com/DhruvamSharma/GSE-Inshorts/blob/master/docs/settings_screen.png" height=500 width=300> <img src="https://github.com/DhruvamSharma/GSE-Inshorts/blob/master/docs/settings_screen_after_animation.png" height=500 width=300>
